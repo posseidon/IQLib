@@ -1,8 +1,6 @@
 # IQLib specification
 > Objectives and data model
 
-[[TOC]]
-
 # Introduction
 
 ## Objectives
