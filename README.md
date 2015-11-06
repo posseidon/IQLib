@@ -40,19 +40,12 @@ Data types are the following: point clouds, triangular meshes and Raster data. D
 Currently specification supports 4 different types of data access patterns based on cell configuration for [Map Algebra](http://gisgeography.com/map-algebra-global-zonal-focal-local/). 
 
 1. Local operation. The value generated in the output raster is a function of cell values at the **_same location_** in the input layers. When you take the temperature average in each cell using two raster grids, this is an example of a local operation.
-
 ![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_0.png)
-
 2. Global operation. A global operation is a process or function that is performed on each output cell using **_all of the cells._**
-
 ![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_1.png)
-
 3. Focal operation. The focal operation is a spatial function that computes an output value of each cell using **_neighborhood values_**. Convolution, kernel and moving windows are examples of image processing techniques that use focal operations. A moving window is a rectangular arrangement of cells that applies an operation to each cell in a raster dataset while shifting in position entirely.
-
 ![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_2.png)
-
 4. Zonal operation. A zonal operation is a spatial function that computes an output value of each cell using the **_zone containing that cell_**. An example of a zone could be a watershed. When you want to calculate the total mean volume of precipitation in each watershed zone, this is an example of when you would use a zonal operation.
-
 ![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_3.png)
 
 ## Patches
