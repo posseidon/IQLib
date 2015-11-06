@@ -9,7 +9,7 @@
 
 Main goal is to allow an actor (human or machine code) to organize huge data sets describing geographical survey areas. IQLib supports the creation of semantic data aggregations within large data sets, and can be used to overcome scalability limitations of processing algorithms.
 
-IQLib’s core functionality is the creation of a [Tiling](#tiling) of large datasets. Such a Tiling can either have a meaning (i.e. a set of watersheds) or simply be a support to enable data processing. In the latter case, processing algorithms can work on smaller [patches](#heading=h.1kfuzq91dvjg).
+IQLib’s core functionality is the creation of a [Tiling](#tiling) of large datasets. Such a Tiling can either have a meaning (i.e. a set of watersheds) or simply be a support to enable data processing. In the latter case, processing algorithms can work on smaller [patches](#patches).
 
 Broadly speaking, a Tiling is the decomposition of a survey area in which data points are either associated to polygons (regular or irregular), or grouped according to temporal attributes, or grouped into equally sized chunks, or a mixture of the above
 
@@ -41,19 +41,19 @@ Currently specification supports 4 different types of data access patterns based
 
 1. Local operation. The value generated in the output raster is a function of cell values at the **_same location_** in the input layers. When you take the temperature average in each cell using two raster grids, this is an example of a local operation.
 
-![image alt text](image_0.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_0.png)
 
 2. Global operation. A global operation is a process or function that is performed on each output cell using **_all of the cells._**
 
-![image alt text](image_1.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_1.png)
 
 3. Focal operation. The focal operation is a spatial function that computes an output value of each cell using **_neighborhood values_**. Convolution, kernel and moving windows are examples of image processing techniques that use focal operations. A moving window is a rectangular arrangement of cells that applies an operation to each cell in a raster dataset while shifting in position entirely.
 
-![image alt text](image_2.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_2.png)
 
 4. Zonal operation. A zonal operation is a spatial function that computes an output value of each cell using the **_zone containing that cell_**. An example of a zone could be a watershed. When you want to calculate the total mean volume of precipitation in each watershed zone, this is an example of when you would use a zonal operation.
 
-![image alt text](image_3.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_3.png)
 
 ## Patches
 
@@ -65,7 +65,7 @@ A single read-write connected area of the original dataset. The collection of al
 
 A collection of data around a tile, which can be used in read-only mode by a processing algorithm to edit/process the tile (under processing) related to this buffer zone. A buffer zone can be empty, when processing algorithm do not require any surrounding data around the Tile (eg. the service algorithm has a local data access pattern).
 
-### Patch
+### <a name="patches"></a>Patch
 
 A Patch may contain two components: a Tile and related Buffer Zone depending on Tiling algorithm. As defined in Buffer Zone, there are some cases where we do not need Buffer Zones, therefore a "Simple" Patch has a Tile, where a “Compound” Patch contains a Tile and a Buffer Zone. 
 
@@ -125,7 +125,7 @@ Constraints:
 
 2. Each Dataset must have at least one datafile.
 
-![image alt text](image_4.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_4.png)
 
 The basic data model for Survey area, Dataset and Data file are:
 
@@ -173,7 +173,7 @@ As an example for Eastern survey area of hungary containing SPOT5 satellite imag
 
 Example
 
-![image alt text](image_5.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_5.png)
 
 <table>
   <tr>
@@ -481,11 +481,11 @@ PARTITION BY
 
 Before processing a dataset distributedly we have to verify if the Dataset is properly tiled (i.e. an appropriate tiling exists for that dataset). If not, we must produce it.
 
-![image alt text](image_6.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_6.png)
 
 Some services can act on more than one Dataset at once. In these cases a compatible tiling is required over all the Datasets used. Therefore, the tiling algorithm must take possible tiling constraints into account.
 
-![image alt text](image_7.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_7.png)
 
 ### Model for Tile
 
@@ -628,7 +628,7 @@ An overhead indicator becomes useful, when actors want to scale up their process
 
 A Tiling is a collection of Patches over one or more Datasets. Each Patch contains a Tile and a BufferZone. Each Tile is made of a collection of subsets of Data files in one of the Datasets. The same applies to BufferZones. Each Tiling is characterized by a Data Access Pattern.
 
-![image alt text](image_8.png)
+![image alt text](https://raw.githubusercontent.com/posseidon/IQLib/master/docs/img/image_8.png)
 
 To represent a Tiling, new Data files can be created to encode the Tiles and Bufferzones. However these files are logically not connected to the original DataSet, due to the fact that they have been created and modified according to Tiling algorithm. Alternatively, Tile and Bufferzones can refer to the original Data Files and use proper indices to specify which parts of such datafiles constitute them. 
 
