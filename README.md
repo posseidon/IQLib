@@ -1,6 +1,5 @@
-IQLib specification
-
-Objectives and data model
+# IQLib specification
+> Objectives and data model
 
 [[TOC]]
 
@@ -10,7 +9,7 @@ Objectives and data model
 
 Main goal is to allow an actor (human or machine code) to organize huge data sets describing geographical survey areas. IQLib supports the creation of semantic data aggregations within large data sets, and can be used to overcome scalability limitations of processing algorithms.
 
-IQLib’s core functionality is the creation of a [Tiling](#heading=h.l8w3097zyykd) of large datasets. Such a Tiling can either have a meaning (i.e. a set of watersheds) or simply be a support to enable data processing. In the latter case, processing algorithms can work on smaller [patches](#heading=h.1kfuzq91dvjg).
+IQLib’s core functionality is the creation of a [Tiling](#tiling) of large datasets. Such a Tiling can either have a meaning (i.e. a set of watersheds) or simply be a support to enable data processing. In the latter case, processing algorithms can work on smaller [patches](#heading=h.1kfuzq91dvjg).
 
 Broadly speaking, a Tiling is the decomposition of a survey area in which data points are either associated to polygons (regular or irregular), or grouped according to temporal attributes, or grouped into equally sized chunks, or a mixture of the above
 
@@ -76,7 +75,7 @@ All the tiles are represented as a graph, with edges encoding their geometrical 
 
 As shown by this figure: Tile E is represented by red area, the buffer zone around Tile E is represented by the blue area surrounding the red area. Together the red and blue area represents the Patch, the following, the following, the following.
 
-## Tiling algorithm
+## <a name="tiling"></a> Tiling algorithm
 
 A tiling algorithm is the process to construct Patches, where each Patch contains a Tile and a BufferZone. The tiling algorithm itself, may exploit knowledge of the partial structuring of the point cloud (if one is known).
 
