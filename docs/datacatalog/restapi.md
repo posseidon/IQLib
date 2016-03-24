@@ -181,7 +181,7 @@ As defined in [IQLib specification](../specification/datamodel.md) see section *
 
 Let us add a new **DataSet** to an existing **Survey Area**:
 ```json
-curl -i -X POST -H "Content-Type:application/json" -d '{ "name": "SPOT5-2015-december", "source": "TERRAIN satellite", "purpose": "Water Logging", "owner": "FÖMI", "isNonOverLapping": "true" },' http://localhost:23700/datamodel/dataset?survey=1
+curl -i -X POST -H "Content-Type:application/json" -d '{ "name": "SPOT5-2015-december", "source": "TERRAIN satellite", "purpose": "Water Logging", "owner": "FÖMI", "isNonOverLapping": "true" },' http://iqlib.herokuapp.com/datamodel/dataset?survey=1
 ```
 Response from the server will contain the object itself with newly assigned **id** value:
 ```json
@@ -196,7 +196,7 @@ Response from the server will contain the object itself with newly assigned **id
 }
 ```
 
-What if we would like to add multiple dataset at the same time to a given *Survey Area*. This can also be done very easily by using the following method **http://localhost:23700/datamodel/datasets**, where in the request body we simply add a list of dataset JSON objects:
+What if we would like to add multiple dataset at the same time to a given *Survey Area*. This can also be done very easily by using the following method **http://iqlib.herokuapp.com/datamodel/datasets**, where in the request body we simply add a list of dataset JSON objects:
 
 ```json
 curl -i -X POST -H "Content-Type:application/json" -d '
@@ -209,7 +209,7 @@ curl -i -X POST -H "Content-Type:application/json" -d '
 { "name": "SPOT5-may", "source": "AQUA satellite", "purpose": "Water Logging", "owner": "FÖMI", "isNonOverLapping": "true" },
 { "name": "SPOT5-june", "source": "AQUA satellite", "purpose": "Water Logging", "owner": "FÖMI", "isNonOverLapping": "true" },
 { "name": "SPOT5-july", "source": "AQUA satellite", "purpose": "Water Logging", "owner": "FÖMI", "isNonOverLapping": "true" }
-]' http://localhost:23700/datamodel/datasets?survey=1
+]' http://iqlib.herokuapp.com/datamodel/datasets?survey=1
 ```
 
 The response will contain newly created objects with assigned IDs:
@@ -293,5 +293,5 @@ The response will contain newly created objects with assigned IDs:
 
 Let's check, if *survey area* of East Hungary contains the given datasets by querying for it:
 ```sh
-curl -i -X GET -H "Content-Type:application/json" http://localhost:23700/surveyarea/1/datasets
+curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/1/datasets
 ```
