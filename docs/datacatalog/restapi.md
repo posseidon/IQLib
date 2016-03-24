@@ -8,7 +8,39 @@ Default URL on development mode:
 ```sh
 http://iqlib.herokuapp.com/
 ```
-You will find available REST profiles for each Model's Repository:
+You will find available REST profiles for each Model's Repository
+
+### Survey Area
+
+As defined in [IQLib specification](docs/specification/datamodel.md) **SurveyArea** has the following structure:
+<table>
+  <tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>String</td>
+    <td>Unique Identifier</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of Survey Area</td>
+  </tr>
+  <tr>
+    <td>List<Dataset></td>
+    <td>List</td>
+    <td>List of dataset related to Survey Area.</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>Text</td>
+    <td>Short summary on data files, their formats and equipments or carriers used to produce data files.</td>
+  </tr>
+</table>
+
 ```json
 {
   "_links" : {
