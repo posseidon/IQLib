@@ -6,26 +6,26 @@ IQLib Core is a standalone server application.
 ## Data Hierarchy
 Default URL on development mode:
 ```sh
-http://localhost:23700/
+http://iqlib.herokuapp.com/
 ```
 You will find available REST profiles for each Model's Repository:
 ```json
 {
   "_links" : {
     "surveyarea" : {
-      "href" : "http://localhost:23700/surveyarea{?page,size,sort}",
+      "href" : "http://iqlib.herokuapp.com/surveyarea{?page,size,sort}",
       "templated" : true
     },
     "dataset" : {
-      "href" : "http://localhost:23700/dataset{?page,size,sort}",
+      "href" : "http://iqlib.herokuapp.com/dataset{?page,size,sort}",
       "templated" : true
     },
     "datafile" : {
-      "href" : "http://localhost:23700/files{?page,size,sort}",
+      "href" : "http://iqlib.herokuapp.com/files{?page,size,sort}",
       "templated" : true
     },
     "profile" : {
-      "href" : "http://localhost:23700/profile"
+      "href" : "http://iqlib.herokuapp.com/profile"
     }
   }
 }
@@ -43,20 +43,20 @@ As a result, we will get the following JSON response from the server:
   "dataset" : null,
   "_links" : {
     "self" : {
-      "href" : "http://localhost:23700/surveyarea/1"
+      "href" : "http://iqlib.herokuapp.com/surveyarea/1"
     },
     "surveyArea" : {
-      "href" : "http://localhost:23700/surveyarea/1"
+      "href" : "http://iqlib.herokuapp.com/surveyarea/1"
     },
     "datasets" : {
-      "href" : "http://localhost:23700/surveyarea/1/datasets"
+      "href" : "http://iqlib.herokuapp.com/surveyarea/1/datasets"
     }
   }
 }
 ```
 Let us search for newly created **Survey Area** object by it's unique name:
 ```sh
-curl -i -X GET -H "Content-Type:application/json" http://localhost:23700/surveyarea/search/findByName?name=East%20Hungary
+curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByName?name=East%20Hungary
 ```
 The result should be the same JSON response return after creating this object.
 
