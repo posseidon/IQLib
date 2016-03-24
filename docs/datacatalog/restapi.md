@@ -53,8 +53,9 @@ As a result, we will get the following JSON response from the server:
     }
   }
 }
-
+```
 To list the available **Search** methods for *Survey Area* model, we simply have to query:
+
 ```sh
 curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search
 ```
@@ -81,12 +82,13 @@ The result will be a JSON object:
 }
 ```
 
-```
 Let us search for newly created **Survey Area** object by it's unique name with *findByName*:
 ```sh
 curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByName?name=East%20Hungary
 ```
+
 You may also search for substring of a name or description with the following methods *findByNameQuery* and *findByDescription*:
+
 ```sh
 curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByNameQuery?name=East
 ```
