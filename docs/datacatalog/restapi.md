@@ -9,10 +9,31 @@ Default URL on development mode:
 http://iqlib.herokuapp.com/
 ```
 You will find available REST profiles for each Model's Repository
+```javascript
+{
+  "_links" : {
+    "surveyarea" : {
+      "href" : "http://iqlib.herokuapp.com/surveyarea{?page,size,sort}",
+      "templated" : true
+    },
+    "dataset" : {
+      "href" : "http://iqlib.herokuapp.com/dataset{?page,size,sort}",
+      "templated" : true
+    },
+    "datafile" : {
+      "href" : "http://iqlib.herokuapp.com/files{?page,size,sort}",
+      "templated" : true
+    },
+    "profile" : {
+      "href" : "http://iqlib.herokuapp.com/profile"
+    }
+  }
+}
+```
 
 ### Survey Area
 
-As defined in [IQLib specification](../specification/datamodel.md) see section *Model for Survey Area* has the following structure:
+As defined in [IQLib specification](../specification/datamodel.md) see section *Model for Survey Area*:
 <table>
   <tr>
     <td>Attribute</td>
@@ -41,28 +62,6 @@ As defined in [IQLib specification](../specification/datamodel.md) see section *
   </tr>
 </table>
 
-```json
-{
-  "_links" : {
-    "surveyarea" : {
-      "href" : "http://iqlib.herokuapp.com/surveyarea{?page,size,sort}",
-      "templated" : true
-    },
-    "dataset" : {
-      "href" : "http://iqlib.herokuapp.com/dataset{?page,size,sort}",
-      "templated" : true
-    },
-    "datafile" : {
-      "href" : "http://iqlib.herokuapp.com/files{?page,size,sort}",
-      "templated" : true
-    },
-    "profile" : {
-      "href" : "http://iqlib.herokuapp.com/profile"
-    }
-  }
-}
-```
-### Survey Area
 Let us create a new **Survey Area** called *East Hungary* with the following **URL**
 ```sh
 curl -i -X POST -H "Content-Type:application/json" -d '{  "name" : "East Hungary",  "description" : "All data related to the eastern part of Hungary" }' http://iqlib.herokuapp.com/surveyarea
