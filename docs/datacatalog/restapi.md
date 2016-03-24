@@ -12,7 +12,7 @@ You will find available REST profiles for each Model's Repository
 
 ### Survey Area
 
-As defined in [IQLib specification](../specification/datamodel.md) **SurveyArea** has the following structure:
+As defined in [IQLib specification](../specification/datamodel.md) see section *Model for Survey Area* has the following structure:
 <table>
   <tr>
     <td>Attribute</td>
