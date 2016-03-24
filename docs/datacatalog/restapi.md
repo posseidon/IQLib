@@ -33,7 +33,7 @@ You will find available REST profiles for each Model's Repository:
 ### Survey Area
 Let us create a new **Survey Area** called *East Hungary* with the following **URL**
 ```sh
-curl -i -X POST -H "Content-Type:application/json" -d '{  "name" : "East Hungary",  "description" : "All data related to the eastern part of Hungary" }' http://localhost:8080/surveyarea
+curl -i -X POST -H "Content-Type:application/json" -d '{  "name" : "East Hungary",  "description" : "All data related to the eastern part of Hungary" }' http://iqlib.herokuapp.com/surveyarea
 ```
 As a result, we will get the following JSON response from the server:
 ```json
@@ -53,12 +53,50 @@ As a result, we will get the following JSON response from the server:
     }
   }
 }
+
+To list the available **Search** methods for *Survey Area* model, we simply have to query:
+```sh
+curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search
 ```
-Let us search for newly created **Survey Area** object by it's unique name:
+The result will be a JSON object:
+```json
+{
+  "_links" : {
+    "findByNameQuery" : {
+      "href" : "http://iqlib.herokuapp.com/surveyarea/search/findByNameQuery{?name}",
+      "templated" : true
+    },
+    "findByName" : {
+      "href" : "http://iqlib.herokuapp.com/surveyarea/search/findByName{?name}",
+      "templated" : true
+    },
+    "findByDescription" : {
+      "href" : "http://iqlib.herokuapp.com/surveyarea/search/findByDescription{?content}",
+      "templated" : true
+    },
+    "self" : {
+      "href" : "http://iqlib.herokuapp.com/surveyarea/search"
+    }
+  }
+}
+```
+
+```
+Let us search for newly created **Survey Area** object by it's unique name with *findByName*:
 ```sh
 curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByName?name=East%20Hungary
 ```
+You may also search for substring of a name or description with the following methods *findByNameQuery* and *findByDescription*:
+```sh
+curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByNameQuery?name=East
+```
+
+```sh
+curl -i -X GET -H "Content-Type:application/json" http://iqlib.herokuapp.com/surveyarea/search/findByDescription?content=eastern
+```
+
 The result should be the same JSON response return after creating this object.
+
 
 ### Dataset
 Let us add a new **DataSet** to existing **Survey Area**
